@@ -24,15 +24,12 @@
   <script src="js/catalogo-ui.js" defer></script>
 </head>
 <body>
-  <!-- pantalla de carga -->
   <div class="loader" aria-hidden="true">
     <img src="img/logo.svg" alt="" width="905" height="285" />
   </div>
 
-  <!-- fondo: degradé blanco / celeste / verde agua con manchas que se mueven despacio -->
   <div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
 
-  <!-- el collar real, recortado de su foto (scripts/recorte_collar.py), flotando con el scroll (js/main.js) -->
   <div class="floater-box" id="floaterBox" aria-hidden="true">
     <div id="floaterShadow" class="floater-shadow"></div>
     <img id="floater" class="floater" src="img/collar@2x.webp" alt="" width="1438" height="1882" />
@@ -52,7 +49,6 @@
   </header>
 
   <main>
-    <!-- 1. Inicio: el collar real flotando (arriba en celular, a la derecha en escritorio) y la marca -->
     <section id="hero" class="hero">
       <div class="hero-copy">
         <h1 class="display" id="title">Diseños únicos, <em>con carácter.</em></h1>
@@ -67,7 +63,6 @@
       <img class="hero-static" src="img/collar@2x.webp" alt="Collar de cuentas de vidrio celestes, lilas y rosas con separadores plateados, mosquetón y dije de corazón" width="1438" height="1882" />
     </section>
 
-    <!-- 2. La pieza en detalle: la sección queda fija y, con el scroll, el collar se acerca a cada parte (estilo Kalis) -->
     <section id="pieza" class="feature">
       <div class="feature-stick">
         <ol class="index" id="stepIndex" aria-label="Partes de la pieza">
@@ -102,7 +97,6 @@
       </div>
     </section>
 
-    <!-- 3. Catálogo: grilla con filtros; cada pieza se abre en grande (datos en js/catalogo.js) -->
     <section id="catalogo" class="catalog">
       <div class="catalog-head reveal">
         <p class="kicker">Catálogo</p>
@@ -120,7 +114,6 @@
       <div class="more-wrap"><button type="button" class="btn ghost" id="more">Ver más piezas</button></div>
     </section>
 
-    <!-- 4. Unisex: bloque de color con fotos superpuestas (estilo "También para llevar" de Kalis) -->
     <section id="coleccion" class="band">
       <div class="band-copy reveal">
         <p class="kicker light">Unisex</p>
@@ -136,7 +129,6 @@
       </div>
     </section>
 
-    <!-- 5. Sobre Vero -->
     <section id="vero" class="about">
       <div class="about-head reveal">
         <p class="kicker">Quién está detrás</p>
@@ -160,7 +152,6 @@
       </div>
     </section>
 
-    <!-- 6. Preguntas (acordeón, como el "Antes de venir" de Kalis) -->
     <section id="preguntas" class="faq">
       <div class="faq-head reveal">
         <h2 class="display">Antes de <em>pedir.</em></h2>
@@ -176,7 +167,6 @@
       </div>
     </section>
 
-    <!-- 7. Contacto y redes -->
     <section id="contacto" class="contact">
       <div class="contact-card reveal">
         <p class="kicker">Pedidos y consultas</p>
@@ -204,7 +194,6 @@
       <a href="#">Volver arriba ↑</a>
     </div>
   </footer>
-  <!-- vista ampliada de una pieza del catálogo -->
   <dialog class="lb" id="lb" aria-label="Pieza del catálogo">
     <button type="button" class="lb-close" id="lbClose" aria-label="Cerrar">×</button>
     <div class="lb-media" id="lbMedia">
