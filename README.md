@@ -49,24 +49,3 @@ scripts/catalogo.py         regenera img/catalogo/ desde fuentes/catalogo/
 netlify.toml                publicación en Netlify
 ```
 
-## Tareas habituales
-
-**Consultas:** todos los botones "Consultar" abren el chat de Instagram con Vero (`instagramDM` en `js/config.js`).
-
-**Cambiar un texto:** está directamente en `index.html`.
-
-**Catálogo — sumar una pieza:** copiar la foto a `fuentes/catalogo/<id>.jpeg` (si tiene más fotos: `<id>-2.jpeg`, ...;
-video: `<id>.mp4`), correr `python scripts/catalogo.py` y agregar una línea en `js/catalogo.js` con ese `id`.
-Para ponerle precio, agregar `precio: '$25.000'`; para marcarla vendida, `vendida: true`; para sacarla, borrar la línea.
-Cada pieza tiene un número (N° 01, N° 02, ...) según el orden de la lista, para que la gente lo mencione al consultar.
-
-**Cambiar la pieza que flota:** reemplazar `img/collar-original.png`, ajustar el recorrido de las tiras en
-`scripts/recorte_collar.py` y correr `python scripts/recorte_collar.py` y después `python scripts/collar_2x.py`. Si cambia mucho la forma del collar, en
-`js/main.js` (`parts`) están los puntos de la foto a los que se acerca en cada paso.
-
-## Pendiente
-
-- La foto original del collar en alta resolución (la actual mide ~1100 px): con ella el zoom gana mucha nitidez.
-- Fotos de Vero para "Sobre Vero" (y alguna pieza puesta por un hombre para el bloque unisex).
-- Nombres y precios reales del catálogo: los nombres actuales son descriptivos y se cambian en `js/catalogo.js`.
-- Métodos de pago y zona/fechas de ferias, si se quieren mostrar en la página.
