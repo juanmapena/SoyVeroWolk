@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Verónica Wolk — Accesorios con alma</title>
+  <meta name="description" content="Collares y accesorios unisex con diseños únicos, que no se repiten. Hechos con impronta propia y mucho carácter. Envíos a todo el país." />
+  <meta name="theme-color" content="#EAF6F6" />
+  <link rel="icon" href="img/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <meta property="og:title" content="Verónica Wolk — Accesorios con alma" />
+  <meta property="og:description" content="Diseños únicos, no los repito. Collares y accesorios para ella y para él, con envíos a todo el país." />
+  <meta property="og:image" content="img/collar-puesto.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Barlow+Condensed:wght@500;600&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="img/collar@2x.webp" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js" defer></script>
+  <script src="js/catalogo.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/catalogo-ui.js" defer></script>
+</head>
+<body>
+  <!-- pantalla de carga -->
+  <div class="loader" aria-hidden="true">
+    <img src="img/logo.svg" alt="" width="905" height="285" />
+  </div>
+
+  <!-- fondo: degradé blanco / celeste / verde agua con manchas que se mueven despacio -->
+  <div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+
+  <!-- el collar real, recortado de su foto (scripts/recorte_collar.py), flotando con el scroll (js/main.js) -->
+  <div id="floaterShadow" class="floater-shadow" aria-hidden="true"></div>
+  <img id="floater" class="floater" src="img/collar@2x.webp" alt="" aria-hidden="true" width="1438" height="1882" />
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#" aria-label="Verónica Wolk — inicio"><img src="img/logo.svg" alt="Verónica Wolk" width="905" height="285" /></a>
+    <nav id="menu">
+      <a href="#pieza">La pieza</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#coleccion">Para ella y para él</a>
+      <a href="#vero">Sobre Vero</a>
+      <a href="#preguntas">Preguntas</a>
+      <a class="btn btn-sm" data-dm href="#contacto" target="_blank" rel="noopener">Consultar</a>
+    </nav>
+    <button class="burger" id="burger" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú"><i></i><i></i></button>
+  </header>
+
+  <main>
+    <!-- 1. Inicio: el collar real flotando (arriba en celular, a la derecha en escritorio) y la marca -->
+    <section id="hero" class="hero">
+      <div class="hero-copy">
+        <p class="kicker rise" style="--d:.1s">Accesorios con alma</p>
+        <h1 class="display" id="title">Diseños únicos, <em>con carácter.</em></h1>
+        <svg class="swash rise" style="--d:.9s" viewBox="0 0 320 22" aria-hidden="true"><path d="M3 15 C 70 6, 170 3, 317 9" /></svg>
+        <p class="lead rise" style="--d:.5s">Collares y accesorios unisex, para ella y para él. Piezas que no se repiten, armadas con impronta propia.</p>
+        <div class="hero-slot" id="heroSlot" aria-hidden="true"></div>
+        <div class="row rise" style="--d:.8s">
+          <a class="btn" data-dm href="#contacto" target="_blank" rel="noopener">Consultar por Instagram</a>
+          <a class="btn ghost" href="#pieza">Ver la pieza</a>
+        </div>
+      </div>
+      <img class="hero-static" src="img/collar@2x.webp" alt="Collar de cuentas de vidrio celestes, lilas y rosas con separadores plateados, mosquetón y dije de corazón" width="1438" height="1882" />
+    </section>
+
+    <!-- 2. La pieza en detalle: la sección queda fija y, con el scroll, el collar se acerca a cada parte (estilo Kalis) -->
+    <section id="pieza" class="feature">
+      <div class="feature-stick">
+        <ol class="index" id="stepIndex" aria-label="Partes de la pieza">
+          <li class="on">Pieza</li><li>Cuentas</li><li>Cierre</li><li>Dije</li>
+        </ol>
+        <div class="feature-copy">
+          <p class="kicker">La pieza, de cerca</p>
+          <div class="steps" id="steps">
+            <article class="step on" data-i="0">
+              <h2 class="display">Una sola <em>pieza.</em></h2>
+              <ul class="stars"><li>Cuentas de vidrio en celeste, lila y rosa</li><li>Separadores plateados</li><li>Mosquetón y dije de corazón</li></ul>
+            </article>
+            <article class="step" data-i="1">
+              <h2 class="display">Color <em>que se mueve.</em></h2>
+              <ul class="stars"><li>Cuentas opacas y transparentes</li><li>Tonos fríos combinados a mano</li><li>Ninguna tira queda igual a otra</li></ul>
+            </article>
+            <article class="step" data-i="2">
+              <h2 class="display">El <em>cierre</em> también se ve.</h2>
+              <ul class="stars"><li>Mosquetón grande, adelante</li><li>Cadena trenzada a los costados</li><li>Se abre y cierra fácil</li></ul>
+            </article>
+            <article class="step" data-i="3">
+              <h2 class="display">Y un <em>corazón.</em></h2>
+              <ul class="stars"><li>Dije plateado con textura brillante</li><li>Cuelga libre del mosquetón</li><li>Pieza única: cuando se va, se fue</li></ul>
+            </article>
+          </div>
+          <div class="row">
+            <span class="price">Consultá precio</span>
+            <a class="btn ghost" data-dm href="#contacto" target="_blank" rel="noopener">Quiero este</a>
+          </div>
+        </div>
+        <div class="feature-bar" aria-hidden="true"><i id="featureBar"></i></div>
+      </div>
+    </section>
+
+    <!-- 3. Catálogo: grilla con filtros; cada pieza se abre en grande (datos en js/catalogo.js) -->
+    <section id="catalogo" class="catalog">
+      <div class="catalog-head reveal">
+        <p class="kicker">Catálogo</p>
+        <h2 class="display">Todas las <em>piezas.</em></h2>
+        <svg class="swash" viewBox="0 0 320 22" aria-hidden="true"><path d="M3 15 C 70 6, 170 3, 317 9" /></svg>
+        <p class="lead">Cada una es única. Tocá una para verla de cerca y consultala por mensaje directo.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filtrar piezas">
+        <button type="button" class="chip on" data-f="todos">Todas <span></span></button>
+        <button type="button" class="chip" data-f="cadenas">Cadenas <span></span></button>
+        <button type="button" class="chip" data-f="cuentas">Cuentas y piedras <span></span></button>
+        <button type="button" class="chip" data-f="cordon">Cordón <span></span></button>
+      </div>
+      <ul class="grid" id="grid"></ul>
+      <div class="more-wrap"><button type="button" class="btn ghost" id="more">Ver más piezas</button></div>
+    </section>
+
+    <!-- 4. Unisex: bloque de color con fotos superpuestas (estilo "También para llevar" de Kalis) -->
+    <section id="coleccion" class="band">
+      <div class="band-copy reveal">
+        <p class="kicker light">Unisex</p>
+        <h2 class="display light">Para ella <em>y para él.</em></h2>
+        <svg class="swash light" viewBox="0 0 320 22" aria-hidden="true"><path d="M3 15 C 70 6, 170 3, 317 9" /></svg>
+        <p>Cadenas, cuentas, piedras y dijes que no entienden de géneros. Cada accesorio tiene su personalidad: lo elegís por cómo te queda, no por para quién “se supone” que es.</p>
+        <a class="btn on-dark" href="#contacto">Ver cómo pedir</a>
+      </div>
+      <div class="collage">
+        <figure class="ph ph-a reveal" style="--d:.1s"><img src="img/collar-puesto.webp" alt="El collar de cristales puesto" loading="lazy" width="1092" height="1099" /></figure>
+        <figure class="ph ph-b reveal" style="--d:.3s"><div class="ph-card"><img src="img/collar.webp" alt="" loading="lazy" width="719" height="941" /></div></figure>
+        <p class="tag reveal" style="--d:.5s">Hecho en Argentina</p>
+      </div>
+    </section>
+
+    <!-- 5. Sobre Vero -->
+    <section id="vero" class="about">
+      <div class="about-head reveal">
+        <p class="kicker">Quién está detrás</p>
+        <h2 class="display">Hola, <em>soy Vero.</em></h2>
+        <svg class="swash" viewBox="0 0 320 22" aria-hidden="true"><path d="M3 15 C 70 6, 170 3, 317 9" /></svg>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="reveal">Detrás de <strong>Verónica Wolk</strong> estoy yo, Vero. Hago accesorios con alma: collares y piezas que diseño con impronta propia y mucho carácter.</p>
+          <p class="reveal">No repito diseños. Cada pieza sale de combinar materiales, colores y formas hasta que tiene algo que decir. Por eso, cuando una pieza se va, no vuelve: la próxima va a ser otra historia.</p>
+          <p class="reveal">Me vas a encontrar en ferias y visitas, y si estás lejos, te lo mando: hago envíos a todo el país.</p>
+          <p class="quote reveal">“Accesorios con alma, para que te acompañen y digan algo de vos.”</p>
+          <p class="signature reveal">Vero Wolk</p>
+        </div>
+        <ol class="timeline" id="timeline">
+          <li><b>1</b><h3>Los materiales</h3><p>Cuentas, cristales, cadenas, piedras y dijes. Todo empieza en la mesa de trabajo.</p></li>
+          <li><b>2</b><h3>El diseño</h3><p>Combinaciones que no se repiten: cada pieza tiene su propia impronta.</p></li>
+          <li><b>3</b><h3>Hecho a mano</h3><p>Se arma pieza por pieza, cuidando cada cierre y cada detalle.</p></li>
+          <li><b>4</b><h3>Hasta vos</h3><p>En ferias, visitas o con envío a cualquier punto del país.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. Preguntas (acordeón, como el "Antes de venir" de Kalis) -->
+    <section id="preguntas" class="faq">
+      <div class="faq-head reveal">
+        <h2 class="display">Antes de <em>pedir.</em></h2>
+        <svg class="swash" viewBox="0 0 320 22" aria-hidden="true"><path d="M3 15 C 70 6, 170 3, 317 9" /></svg>
+      </div>
+      <div class="faq-list">
+        <details class="reveal"><summary>¿Cómo hago un pedido?</summary><p>Escribime por mensaje directo en Instagram con la pieza que te gustó (una captura alcanza) y te confirmo si está disponible.</p></details>
+        <details class="reveal"><summary>¿Hacen envíos?</summary><p>Sí, envíos a todo el país. Te paso el costo según tu ubicación.</p></details>
+        <details class="reveal"><summary>¿Los diseños se repiten?</summary><p>No. Cada pieza es única; si una se vende, la próxima va a ser distinta.</p></details>
+        <details class="reveal"><summary>¿Son para hombre y para mujer?</summary><p>Sí, los accesorios son unisex. Si buscás algo para regalar, contame para quién es y te ayudo a elegir.</p></details>
+        <details class="reveal"><summary>¿Cómo se paga?</summary><p>Los métodos de pago están en las historias destacadas de Instagram, o preguntame por mensaje directo.</p></details>
+        <details class="reveal"><summary>¿Dónde las veo en persona?</summary><p>En ferias y visitas. Las fechas las comparto en Instagram, en la historia destacada “Feria y Visitas”.</p></details>
+      </div>
+    </section>
+
+    <!-- 7. Contacto y redes -->
+    <section id="contacto" class="contact">
+      <div class="contact-card reveal">
+        <p class="kicker">Pedidos y consultas</p>
+        <h2 class="display">¿Te gustó <em>alguna pieza?</em></h2>
+        <p class="lead">Escribime por mensaje directo en Instagram y lo charlamos.</p>
+        <a class="btn" data-dm href="#" target="_blank" rel="noopener">Mandame un mensaje</a>
+        <div class="socials">
+          <a class="social" id="igLink" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="dot" cx="17.5" cy="6.5" r="1"/></svg>
+            <span><b>Instagram</b><small>@soyvero_wolk</small></span>
+          </a>
+          <a class="social" id="ttLink" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 3c.5 2.6 2.3 4.3 5 4.5"/></svg>
+            <span><b>TikTok</b><small>@veronica.wolk</small></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <img class="foot-logo reveal" src="img/logo.svg" alt="Verónica Wolk" width="905" height="285" loading="lazy" />
+    <div class="foot-row">
+      <span>© <span id="year"></span> Verónica Wolk · Accesorios con alma · Envíos a todo el país</span>
+      <a href="#">Volver arriba ↑</a>
+    </div>
+  </footer>
+  <!-- vista ampliada de una pieza del catálogo -->
+  <dialog class="lb" id="lb" aria-label="Pieza del catálogo">
+    <button type="button" class="lb-close" id="lbClose" aria-label="Cerrar">×</button>
+    <div class="lb-media" id="lbMedia">
+      <div class="lb-stage" id="lbStage"></div>
+      <button type="button" class="lb-arrow prev" id="lbPrev" aria-label="Pieza anterior">‹</button>
+      <button type="button" class="lb-arrow next" id="lbNext" aria-label="Pieza siguiente">›</button>
+      <div class="lb-dots" id="lbDots"></div>
+    </div>
+    <div class="lb-info">
+      <h3 class="lb-title" id="lbName"></h3>
+      <p class="lb-desc" id="lbDesc"></p>
+      <p class="lb-price" id="lbPrice"></p>
+      <a class="btn" data-dm id="lbAsk" href="#" target="_blank" rel="noopener">Consultar por esta pieza</a>
+    </div>
+  </dialog>
+</body>
+</html>
