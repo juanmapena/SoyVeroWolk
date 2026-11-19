@@ -180,15 +180,16 @@ main { position: relative; z-index: 2; }
 .more-wrap [hidden] { display: none; }
 
 /* vista ampliada */
-.lb { width: 100%; max-width: 100%; height: 100%; max-height: 100%; margin: 0; padding: 0; border: 0; background: var(--white); color: var(--ink); display: none; flex-direction: column; overflow-y: auto; }
+.lb { width: 100%; max-width: 100%; height: 100%; height: 100dvh; max-height: 100%; max-height: 100dvh; margin: 0; padding: 0; border: 0; background: var(--white); color: var(--ink); display: none; flex-direction: column; overflow-y: auto; }
 .lb[open] { display: flex; animation: lbIn .45s var(--ease); }
 .lb::backdrop { background: rgba(22,50,58,.55); backdrop-filter: blur(6px); }
 @keyframes lbIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 .lb-open, .lb-open body { overflow: hidden; }
 .lb-close { position: fixed; right: 12px; top: 12px; z-index: 3; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: var(--ink); font: 300 30px/1 var(--body); cursor: pointer; box-shadow: 0 6px 20px -8px rgba(22,50,58,.5); }
-.lb-media { position: relative; flex: none; height: 62svh; background: linear-gradient(160deg, var(--sky), var(--mint)); }
-.lb-stage { position: absolute; inset: 0; display: grid; place-items: center; }
-.lb-stage img, .lb-stage video { width: 100%; height: 100%; object-fit: contain; }
+.lb-media { position: relative; flex: 1 1 auto; min-height: 260px; overflow: hidden; background: linear-gradient(160deg, var(--sky), var(--mint)); }
+/* la foto siempre entra entera en su recuadro (posición absoluta: Safari no respeta el 100% de alto dentro de una grilla) */
+.lb-stage { position: absolute; inset: 0; overflow: hidden; }
+.lb-stage img, .lb-stage video { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: contain; }
 .lb-stage .in { animation: fadeUp .5s var(--ease); }
 .lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255,255,255,.85); color: var(--ink); font: 300 30px/1 var(--body); padding-bottom: 4px; cursor: pointer; }
 .lb-arrow.prev { left: 10px; } .lb-arrow.next { right: 10px; }
@@ -196,9 +197,9 @@ main { position: relative; z-index: 2; }
 .lb-dots button { width: 26px; height: 26px; border-radius: 50%; border: 0; background: rgba(255,255,255,.6); font-size: 9px; color: var(--ink); cursor: pointer; }
 .lb-dots button:empty { width: 12px; height: 12px; margin-top: 7px; }
 .lb-dots button.on { background: var(--teal-d); color: #fff; }
-.lb-info { padding: 22px var(--pad) calc(28px + env(safe-area-inset-bottom)); text-align: center; display: flex; flex-direction: column; align-items: center; }
+.lb-info { flex: none; padding: 20px var(--pad) calc(26px + env(safe-area-inset-bottom)); text-align: center; display: flex; flex-direction: column; align-items: center; }
 .lb-info .kicker { margin-bottom: 8px; }
-.lb-title { font: 400 34px/1.05 var(--display); margin-bottom: 10px; }
+.lb-title { font: 400 30px/1.1 var(--display); margin-bottom: 8px; }
 .lb-desc { color: var(--ink-2); max-width: 30em; margin-bottom: 10px; }
 .lb-price { font: 500 20px/1.2 var(--display); margin-bottom: 18px; }
 
