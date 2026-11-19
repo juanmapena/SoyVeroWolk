@@ -33,8 +33,10 @@
   <div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
 
   <!-- el collar real, recortado de su foto (scripts/recorte_collar.py), flotando con el scroll (js/main.js) -->
-  <div id="floaterShadow" class="floater-shadow" aria-hidden="true"></div>
-  <img id="floater" class="floater" src="img/collar@2x.webp" alt="" aria-hidden="true" width="1438" height="1882" />
+  <div class="floater-box" id="floaterBox" aria-hidden="true">
+    <div id="floaterShadow" class="floater-shadow"></div>
+    <img id="floater" class="floater" src="img/collar@2x.webp" alt="" width="1438" height="1882" />
+  </div>
 
   <header class="nav" id="nav">
     <a class="brand" href="#" aria-label="Verónica Wolk — inicio"><img src="img/logo.svg" alt="Verónica Wolk" width="905" height="285" /></a>
@@ -53,7 +55,6 @@
     <!-- 1. Inicio: el collar real flotando (arriba en celular, a la derecha en escritorio) y la marca -->
     <section id="hero" class="hero">
       <div class="hero-copy">
-        <p class="kicker rise" style="--d:.1s">Accesorios con alma</p>
         <h1 class="display" id="title">Diseños únicos, <em>con carácter.</em></h1>
         <svg class="swash rise" style="--d:.9s" viewBox="0 0 320 22" aria-hidden="true"><path d="M3 15 C 70 6, 170 3, 317 9" /></svg>
         <p class="lead rise" style="--d:.5s">Collares y accesorios unisex, para ella y para él. Piezas que no se repiten, armadas con impronta propia.</p>
