@@ -78,7 +78,8 @@
   }
 
   // ---- el collar flotando ----
-  const img = $('#floater'), shadow = $('#floaterShadow'), slot = $('#heroSlot');
+  const img = $('#floater'), shadow = $('#floaterShadow'), slot = $('#heroSlot'), box = $('#floaterBox');
+  const stepIndex = $('#stepIndex');
   const ratio = () => (img.naturalWidth || 1438) / (img.naturalHeight || 1882);
   // el detalle real de la foto: el recorte original mide 941 px de alto (img/collar@2x.webp es esa foto ampliada y
   // realzada). El acercamiento nunca agranda más de 1.3 veces ese detalle, para que no se vea borroso.
@@ -88,15 +89,22 @@
 
   // Pose: s = scroll (px); x, y = punto de la pantalla (fracción); h = alto (fracción del alto de pantalla);
   // fx, fy = qué punto del collar va en (x, y) (fracción de la imagen); z = acercamiento; rot = giro; sh = sombra.
-  let K = [], leave = 0;
+  let K = [], leave = 0, area = null, featA = 0;
   function layout() {
     const vh = innerHeight, mobile = innerWidth < 900;
     const [a, b] = featureRange(), L = b - a;
     const H = Math.min(0.8, (innerWidth * 0.38) / (vh * ratio()));
-    const HF = mobile ? 0.46 : H * 0.92; // alto base en la sección de la pieza
+    // celular: en la sección de la pieza el collar usa la franja entre el header y el índice (Pieza · Cuentas…),
+    // con aire arriba y abajo; fuera de esa franja se recorta con una máscara para no pisar los textos.
+    if (mobile) {
+      const top = nav.offsetHeight + 18, bottom = stepIndex.offsetTop - 26;
+      area = { top, bottom: Math.max(top + 120, bottom) };
+    } else area = null;
+    featA = a;
+    const HF = mobile ? ((area.bottom - area.top) * 0.9) / vh : H * 0.92; // alto base en la sección de la pieza
     const zMax = Math.max(1, (DETAIL_H * MAX_UPSCALE) / (HF * vh));
     const at = (k, t) => a + L * (k / 4 + t);
-    const fx = mobile ? 0.5 : 0.62, fy = mobile ? 0.29 : 0.52;
+    const fx = mobile ? 0.5 : 0.62, fy = mobile ? (area.top + area.bottom) / 2 / vh : 0.52;
     const parts = [
       { fx: 0.5, fy: 0.5, z: 1, rot: 2 },     // la pieza completa
       { fx: 0.14, fy: 0.42, z: 1.7, rot: -4 }, // cuentas (tira izquierda)
@@ -150,6 +158,15 @@
     shadow.style.width = `${sw}px`;
     shadow.style.transform = `translate(${X - sw / 2}px, ${Y + (1 - p.fy) * H + 18 + lift}px) scale(${1 - lift / (vh * 0.3)})`;
     shadow.style.opacity = String(p.sh * Math.max(0, 0.85 - lift / 60));
+    // máscara (solo celular): se ajusta a la franja del collar al llegar a la sección y se va con ella
+    if (area) {
+      const f = smooth(clamp((s - (featA - vh * 0.7)) / (vh * 0.7)));
+      if (f > 0) {
+        const t = lerp(-40, area.top, f) - away, b = lerp(vh + 40, area.bottom, f) - away;
+        const m = `linear-gradient(to bottom, transparent ${t - 6}px, #000 ${t + 16}px, #000 ${b - 22}px, transparent ${b}px)`;
+        box.style.maskImage = box.style.webkitMaskImage = m;
+      } else box.style.maskImage = box.style.webkitMaskImage = 'none';
+    } else box.style.maskImage = box.style.webkitMaskImage = 'none';
     return away < vh * 1.3;
   }
 
@@ -168,7 +185,7 @@
     s += (scrollY - s) * follow;
     if (Math.abs(scrollY - s) < 0.5) s = scrollY;
     const visible = render(s, ms / 1000);
-    img.style.visibility = shadow.style.visibility = visible ? 'visible' : 'hidden';
+    box.style.visibility = visible ? 'visible' : 'hidden';
   };
   requestAnimationFrame(tick);
 })();
